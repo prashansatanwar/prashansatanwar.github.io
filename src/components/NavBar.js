@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="font-raleway font-medium tracking-wide absolute flex bg-cardcolor text-textcolor shadow-sm w-screen h-10">
-      <Link to="/" className="h-full border-bgcolor border-r-2 p-2 hover:text-hovercolor">
+    <nav className="fixed top-0 z-50 font-raleway font-medium tracking-wide flex bg-cardcolor text-textcolor shadow-sm w-screen h-10">
+      <Link to="/" className="text-sm sm:text-base items-center justify-center h-full border-bgcolor border-r-2 p-2 pt-2 hover:text-hovercolor">
         PRASHANSA TANWAR
       </Link>
 
@@ -23,7 +23,7 @@ const NavBar = () => {
         </Link>
       </div>
 
-      <div className="sm:block md:hidden m-auto inline-flex items-center mr-1 cursor-pointer">
+      <div className="sm:block md:hidden m-auto inline-flex items-center mr-1 cursor-pointer hover:text-hovercolor">
         <svg
           className="w-6 h-6"
           fill="none"

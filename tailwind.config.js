@@ -1,11 +1,12 @@
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        bgcolor: "#E0DFE2",
+        bgcolor: "#D3CEDF",
         cardcolor: "#F0F0F0",
         hovercolor: "#227381",
         textcolor: "#111",
@@ -16,6 +17,18 @@ module.exports = {
       backgroundImage: (theme) => ({
         img: "url('data/photo_2020-10-03_15-03-40.jpg')",
       }),
+      height: {
+        "90p": "90%",
+        "95p": "95%",
+      },
+      width: {
+        "90p": "90%",
+        "95p": "95%",
+      },
+    },
+    screens: {
+      xsm: "320px",
+      ...defaultTheme.screens,
     },
   },
   variants: {
