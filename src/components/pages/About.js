@@ -1,12 +1,11 @@
 import React from 'react'
 import Sidebar from '../Sidebar'
-import Home from './Home'
 
 function About() {
     return (
-        <div className="flex flex-grow justify-center items-center font-raleway m-20 h-full w-full">
+        <div className="flex flex-grow justify-center items-center font-raleway m-32 h-full w-full">
             <div className='flex flex-col md:flex-row lg:inline-flex lg:flex-row 
-                            px-10 justify-center'>
+                            px-32 justify-center'>
                 <Sidebar />
                 <div className="flex flex-col
                         justify-center items-center

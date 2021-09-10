@@ -15,7 +15,7 @@ module.exports = {
         raleway: ["Raleway"],
       },
       backgroundImage: (theme) => ({
-        img: "url('data/photo_2020-10-03_15-03-40.jpg')",
+        img: "url('./data/photo_2020-10-03_15-03-40.jpg')",
       }),
       height: {
         "90p": "90%",
