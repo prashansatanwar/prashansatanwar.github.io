@@ -2,20 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "./routes";
 
-const NavBar = () => {
+const NavBar = ({toggle}) => {
   return (
-    <nav className="fixed top-0 z-50 font-raleway font-medium tracking-wide flex bg-cardcolor text-textcolor shadow-sm w-full h-10">
-      <Link to="/Portfolio" className="text-sm sm:text-base items-center justify-center h-full border-bgcolor border-r-2 p-2 hover:text-hovercolor">
-        PRASHANSA TANWAR
+    <nav className="fixed top-0 z-50 font-raleway font-medium tracking-wider flex bg-cardcolor text-textcolor shadow-sm w-full h-10">
+      <Link
+        to="/Portfolio"
+        className="text-sm tems-center justify-center h-full border-bgcolor border-r-2 py-2 px-4 tracking-widest hover:text-hovercolor"
+      >
+        <b>PRASHANSA TANWAR</b>
       </Link>
 
-      <div className="md:block hidden m-3 justify-center items-center text-sm">
-        {routes.filter((l) => !l.index).map((l) => (
-          <Link className="border-bgcolor border-r-2 px-2 uppercase hover:text-hovercolor" to={l.path}>{l.label}</Link>
-        ))}
+      <div className="md:block hidden m-3 justify-center items-center text-xs">
+        {routes
+          .filter((l) => !l.index)
+          .map((l, index) => (
+            <Link
+              key={index}
+              className="border-bgcolor border-r-2 px-2 uppercase hover:text-hovercolor"
+              to={l.path}
+            >
+              {l.label}
+            </Link>
+          ))}
       </div>
 
-      <div className="sm:block md:hidden m-auto inline-flex items-center mr-1 cursor-pointer hover:text-hovercolor">
+      <div
+        className="sm:block md:hidden m-auto inline-flex items-center mr-1 cursor-pointer hover:text-hovercolor"
+        onClick={toggle}
+      >
         <svg
           className="w-6 h-6"
           fill="none"
@@ -29,11 +43,8 @@ const NavBar = () => {
             strokeWidth={2}
             d="M4 6h16M4 12h16M4 18h16"
           />
-
-          
         </svg>
       </div>
-
     </nav>
   );
 };

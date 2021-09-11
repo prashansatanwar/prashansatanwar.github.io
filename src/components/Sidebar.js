@@ -1,18 +1,20 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { social_links } from './routes'
 
 function Sidebar() {
     return (
-        <div className='min-w-1/4 pr-20 justify-center items-center font-raleway font-normal tracking-wide '>
+        <div className='order-last lg:order-first mt-20 lg-mt-0 min-w-1/4 pr-20 justify-center items-center font-raleway font-normal tracking-wide '>
             <div className="rounded-full bg-center bg-contain bg-img 
-                            h-44 w-44 md:h-32 md:w-32 lg:h-44 lg:w-44
+                            h-44 w-44 
                             hover:shadow-2xl">
             </div>
 
             <div className='py-10'>
-                <div className='pb-1 text-2xl font-bold'>
+                <div className='pb-1 text-lg md:text-xl lg:text-3xl font-bold'>
                     PRASHANSA TANWAR
                 </div>
-                <a href='mailto:prashansatanwar@gmail.com'>prashansatanwar@gmail.com</a>
+                <a href='mailto:prashansatanwar@gmail.com' className='break-words text-sm md:text-base'>prashansatanwar@gmail.com</a>
             </div>
             
             <hr/>
@@ -23,8 +25,15 @@ function Sidebar() {
 
             <hr/>
 
-            <div className='py-2'>
-                social media
+            <div className='py-5 pb-16'>
+            <div className='inline-flex h-full w-full'>
+                  {social_links.filter((l) => !l.index).map((l,index) => (
+                    <a href={l.path} target='_blank' rel="noreferrer" key={index} className='hover:text-hovercolor'><FontAwesomeIcon icon = {l.icon} size='sm' className="rounded-full mx-2"/></a>
+                  ))}
+                  {social_links.filter((l) => l.index).map((l,index) => (
+                    <a href={l.path} target='' download='prashansatanwar_resume' key={index} className='hover:text-hovercolor'><FontAwesomeIcon icon = {l.icon} size='sm' className="rounded-full mx-2"/></a>
+                  ))}
+              </div>
             </div>
 
         

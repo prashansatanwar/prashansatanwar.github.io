@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Home() {
   return (
-    <div className="flex flex-grow justify-center items-center font-raleway m-5 mb-0 h-full w-full">
+    <div className="flex flex-grow justify-center items-center font-raleway m-5 mb-0 h-full w-full tracking-wide">
     {/* info-card */}
       <div className="flex flex-col md:flex-row lg:inline-flex lg:flex-row 
                     justify-center items-center
@@ -42,35 +42,23 @@ function Home() {
                           h-5 md:h-16 w-full my-5'>
 
               <div className='inline-flex justify-center items-center h-full w-full md:hidden'>
-                  {social_links.filter((l) => !l.index).map((l) => (
-                    <a href={l.path} target='_blank' rel="noreferrer"><FontAwesomeIcon icon = {l.icon} size='sm' className="rounded-full mx-2 hover:shadow-lg"/></a>
+                  {social_links.filter((l) => !l.index).map((l,index) => (
+                    <a href={l.path} target='_blank' rel="noreferrer" key={index} className='text-gray-600 hover:text-textcolor'><FontAwesomeIcon icon = {l.icon} size='sm' className="rounded-full mx-2 hover:shadow-lg"/></a>
                   ))}
-                  {social_links.filter((l) => l.index).map((l) => (
-                    <a href={l.path} target='' download='prashansatanwar_resume'><FontAwesomeIcon icon = {l.icon} size='sm' className="rounded-full mx-2 hover:shadow-lg"/></a>
-                  ))}
-              </div>
-
-
-              <div className='inline-flex justify-center items-center h-full w-full hidden md:flex lg:hidden'>
-                  {social_links.filter((l) => !l.index).map((l) => (
-                    <a href={l.path} target='_blank' rel="noreferrer"><FontAwesomeIcon icon = {l.icon} size='md' className="rounded-full mx-2 hover:shadow-lg"/></a>
-                  ))}
-                  {social_links.filter((l) => l.index).map((l) => (
-                    <a href={l.path} target='' download='prashansatanwar_resume'><FontAwesomeIcon icon = {l.icon} size='md' className="rounded-full mx-2 hover:shadow-lg"/></a>
+                  {social_links.filter((l) => l.index).map((l,index) => (
+                    <a href={l.path} target='' download='prashansatanwar_resume' key={index} className='text-gray-600 hover:text-textcolor'><FontAwesomeIcon icon = {l.icon} size='sm' className="rounded-full mx-2 hover:shadow-lg"/></a>
                   ))}
               </div>
 
 
-              <div className='inline-flex justify-center items-center h-full w-full hidden lg:flex'>
-                  {social_links.filter((l) => !l.index).map((l) => (
-                    <a href={l.path} target='_blank' rel="noreferrer"><FontAwesomeIcon icon = {l.icon} size='lg' className="rounded-full mx-2 hover:shadow-lg"/></a>
+              <div className='inline-flex justify-center items-center h-full w-full hidden md:flex'>
+                  {social_links.filter((l) => !l.index).map((l,index) => (
+                    <a href={l.path} target='_blank' rel="noreferrer" key={index} className='text-gray-600 hover:text-textcolor'><FontAwesomeIcon icon = {l.icon} size='lg' className="rounded-full mx-2 hover:shadow-lg"/></a>
                   ))}
-                  {social_links.filter((l) => l.index).map((l) => (
-                    <a href={l.path} target='' download='prashansatanwar_resume'><FontAwesomeIcon icon = {l.icon} size='lg' className="rounded-full mx-2 hover:shadow-lg"/></a>
+                  {social_links.filter((l) => l.index).map((l,index) => (
+                    <a href={l.path} target='' download='prashansatanwar_resume' key={index} className='text-gray-600 hover:text-textcolor'><FontAwesomeIcon icon = {l.icon} size='lg' className="rounded-full mx-2 hover:shadow-lg"/></a>
                   ))}
               </div>
-
-
             </div>
         </div>
       </div>

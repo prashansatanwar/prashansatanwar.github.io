@@ -3,13 +3,14 @@ import Sidebar from '../Sidebar'
 
 function Contact() {
     return (
-        <div className="flex flex-grow justify-center items-center font-raleway m-20 h-full w-full">
-            <div className='flex flex-col md:flex-row lg:inline-flex lg:flex-row 
-                            px-10 justify-center'>
+        <div className="flex flex-grow justify-center items-center font-raleway tracking-wide m-32 h-full w-full">
+            <div className='flex flex-col lg:flex-row lg:inline-flex lg:flex-row 
+                            px-20 lg:px-32 justify-center'>
                 <Sidebar />
                 <div className="flex flex-col
                         justify-center items-center
-                        p-10
+                        lg:ml-10
+                        p-10 order-first lg:order-last 
                         bg-cardcolor text-center">
                     <h1><b>Contact</b></h1>
                     <br />
