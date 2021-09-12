@@ -7,12 +7,12 @@ function Menu({ open, toggle }) {
     <div
       className={
         open
-          ? "fixed font-raleway font-medium tracking-wide shadow-sm top-10 z-10 w-full h-full"
-          : "hidden"
+          ? "fixed font-raleway font-medium tracking-wide shadow-sm top-10 z-10 left-full w-full sm:w-1/2 h-full transition duration-1000 ease-in-out transform -translate-x-full"
+          : "fixed font-raleway font-medium tracking-wide shadow-sm top-10 z-10 left-full w-full sm:w-1/2 h-full transition duration-1000 ease-in-out transform translate-x-full"
       }
-      onClick={toggle}
+      onClick={toggle}transform
     >
-      <div className="ml-auto py-2 flex flex-col text-center bg-cardcolor bg-opacity-90 mr-0 xsm:3/5 sm:w-2/5 h-full ">
+      <div className="py-2 flex flex-col text-center bg-cardcolor bg-opacity-90 w-full h-full">
         {routes
           .filter((l) => !l.index)
           .map((l, index) => (
