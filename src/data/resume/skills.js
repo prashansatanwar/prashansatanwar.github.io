@@ -91,6 +91,21 @@ export const skills = [
         proficiency:5,
         category:['Miscellaneous','All'],
     },
+    {
+        title:'Problem Solving Skills',
+        proficiency:4,
+        category:['Miscellaneous','All'],
+    },
+    {
+        title:'MATLAB',
+        proficiency:2,
+        category:['Tools & Technologies','All'],
+    },
+    {
+        title:'MYSQL',
+        proficiency:2,
+        category:['Data Science','All'],
+    },
 ]
 
 export const categories = [
