@@ -7,7 +7,7 @@ export const projects = [
         end:'Sept. 2021',
         team_size:'',
         description:"I created this portfolio website from scratch using Reactjs. The website is responsive and works seamlessly across all major browsers and screen sizes.",
-        link:"",
+        link:"https://github.com/prashansatanwar/prashansatanwar.github.io",
         text:"Source code",
     },
     {
