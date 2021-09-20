@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Home() {
   return (
-    <div className="flex flex-grow justify-center items-center font-raleway m-5 mb-0 h-full w-full tracking-wide">
+    <div className="flex flex-grow z-10 justify-center items-center font-raleway m-5 mb-0 h-full w-full tracking-wide">
     {/* info-card */}
       <div className="flex flex-col md:flex-row lg:inline-flex lg:flex-row 
                     justify-center items-center
@@ -28,14 +28,14 @@ function Home() {
             {/* name */}
             <div className='text-l sm:text-3xl md:text-5xl 
                           w-full text-center justify-center items-center
-                          font-bold tracking-widest'>
-                PRASHANSA TANWAR
+                          font-bold tracking-wider'>
+                Hi, I'm <br className='sm:hidden'/> <span className='text-red-700'>Prashansa Tanwar</span>
             </div>
             {/* content */}
-            <div className='flex-grow text-xs sm:text-sm md:text-md lg:text-lg w-full
+            <div className='flex-grow text-xs sm:text-sm md:text-xl w-full
                           md:px-5 sm:py-5 md:py-10 
                           font-normal tracking-wide'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi rerum expedita consectetur debitis quisquam provident nisi quis esse perspiciatis magnam incidunt, tempore dolorum est minus. Dignissimos laborum pariatur amet?
+              I AM 
             </div>
             {/* Social Media */}
             <div className='items-center justify-center text-center 

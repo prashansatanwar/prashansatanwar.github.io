@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import Particles from 'react-particles-js';
 import NavBar from "./components/NavBar";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
@@ -7,6 +8,7 @@ import Resume from "./components/pages/Resume";
 import Projects from "./components/pages/Projects";
 import Contact from "./components/pages/Contact";
 import Menu from "./components/Menu";
+import particlesConfig from './data/particlesConfig.json'
 
 function App() {
   const [open, setopen] = useState(false);
@@ -39,6 +41,7 @@ function App() {
         <Route exact path="/projects" component={Projects} />
         <Route exact path="/contact" component={Contact} />
       </Switch>
+      <Particles params={particlesConfig} className='z-0 w-full h-full fixed top-0'/>
     </>
   );
 }
