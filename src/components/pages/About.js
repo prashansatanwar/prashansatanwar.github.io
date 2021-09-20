@@ -9,8 +9,6 @@ const data = raw("../../data/about.md");
 const LinkRenderer = ({ ...children }) => <Link {...children} />;
 
 function About() {
-	console.log(data);
-	// console.log(LinkRenderer)
 	return (
 		<div className="flex flex-grow z-10 justify-center font-raleway tracking-wide my-20 h-full w-full">
 			<div
@@ -28,37 +26,58 @@ function About() {
 					<h1 className="tracking-widest uppercase font-extrabold text-3xl text-center py-4 border-b-2">
 						About me
 					</h1>
-					<br />
-					<article>
+					<br />     
+					<article className='text-sm'>
 						<ReactMarkdown
 							children={data}
 							components={{
 								Link: LinkRenderer,
 								h1: ({ node, ...props }) => (
 									<h1
-										className="text-xl uppercase font-bold tracking-wider"
+										className="px-2 mt-4 mb-2 border-b-2 tracking-wider uppercase font-bold text-lg "
 										{...props}
 									></h1>
 								),
-								h2: ({ node, ...props }) => (
-									<h1
-										className="text-lg uppercase font-bold tracking-wider"
+								a: ({node, ...props}) => (
+									<a
+										className='underline text-hovercolor'
 										{...props}
-									></h1>
+									></a>
 								),
-								h3: ({ node, ...props }) => (
-									<h1
-										className="text-base uppercase font-bold tracking-wider"
+								p: ({node, ...props}) => (
+									<p 
+										className='py-3 pl-2'
 										{...props}
-									></h1>
+									></p>
+								),
+								ul:({node,...props}) => (
+									<ul
+										className='px-7'
+										style={{listStyle:'disc'}}
+										{...props}
+										ordered='false'
+									></ul>
+								),
+								li:({node,...props}) => (
+									<li
+										className='py-1'
+										{...props}
+										ordered='false'
+									></li>
+								),
+								strong:({node,...props})=>(
+									<strong
+										className='font-medium'
+										{...props}
+									></strong>
 								),
 							}}
-						/>
+						/>  
 					</article>
 				</div>
 			</div>
 		</div>
 	);
-}
+} 
 
 export default About;

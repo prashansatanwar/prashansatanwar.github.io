@@ -11,15 +11,15 @@ import Menu from "./components/Menu";
 import particlesConfig from './data/particlesConfig.json'
 
 function App() {
-  const [open, setopen] = useState(false);
+  const [open, setOpen] = useState(false);
   const toggle = () => {
-    setopen(!open);
+    setOpen(!open);
   };
 
   useEffect(() => {
     const hideMenu = () => {
       if (window.innerWidth > 768 && open) {
-        setopen(false);
+        setOpen(false);
       }
     };
 
@@ -32,10 +32,10 @@ function App() {
 
   return (
     <>
-      <NavBar toggle={toggle} />
+      <NavBar toggle={toggle} setOpen={setOpen}/>
       <Menu open={open} toggle={toggle} />
       <Switch>
-        <Route exact path="/Portfolio" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/resume" component={Resume} />
         <Route exact path="/projects" component={Projects} />

@@ -41,6 +41,7 @@ function Resume() {
 					<Courses/>
 					<br/>
 
+					<a href='Resume.pdf' target="" download="prashansatanwar_resume" className="text-hovercolor hover:text-textcolor">Download Resume</a>
 				</div>
 			</div>
 		</div>

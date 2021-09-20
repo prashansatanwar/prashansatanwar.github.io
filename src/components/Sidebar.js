@@ -24,7 +24,9 @@ function Sidebar() {
 
 
 			<div className="py-6 border-t-2 border-b-2 border-cardcolor border-opacity-70 text-sm font-medium opacity-80">
-				Hi! I'm Prashansa Tanwar. I'm currently pursuing Bachelors in Technology from IIIT Delhi. 
+			I'm an enthusiastic undergraduate student at IIITD who loves to dive into projects. 
+			I like to keep an open mind while approaching new problems. 
+			I'm currently seeking work opportunities as a Software Engineer or Data Analyst.
 			</div>
 
 

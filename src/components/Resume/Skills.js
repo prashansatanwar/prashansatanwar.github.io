@@ -5,7 +5,6 @@ import SkillsBar from "./SkillsBar";
 
 function Skills() {
 	const [selected, setSelected] = useState("All");
-	console.log(selected);
 
 	return (
 		<div>

@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "./routes";
 
-const NavBar = ({ toggle }) => {
+const NavBar = ({ toggle,setOpen }) => {
 	return (
 		<nav className="fixed top-0 z-50 font-raleway font-medium tracking-wider flex bg-cardcolor text-textcolor shadow-sm w-full h-10">
 			<Link
-				to="/Portfolio"
+				to="/"
 				className="text-sm tems-center justify-center h-full border-bgcolor border-r-2 py-2 px-4 tracking-widest hover:text-hovercolor"
+				onClick={()=>setOpen(false)}
 			>
 				<b>PRASHANSA TANWAR</b>
 			</Link>

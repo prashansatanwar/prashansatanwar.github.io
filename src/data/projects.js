@@ -1,5 +1,16 @@
 export const projects = [
     {
+        index:5,
+        title:'My Portfolio Website',
+        location:'',
+        start:'Aug. 2021',
+        end:'Sept. 2021',
+        team_size:'',
+        description:"I created this portfolio website from scratch using Reactjs. The website is responsive and works seamlessly across all major browsers and screen sizes.",
+        link:"",
+        text:"Source code",
+    },
+    {
         index:4,
         title:'Implementing a Volumetric Ray Tracing Algorithm on GPU',
         location:'IIIT Delhi, India',
@@ -7,6 +18,8 @@ export const projects = [
         end:'Apr. 2021',
         team_size:'Team size: 2',
         description:"We implemented a Volumetric Ray Tracing Algorithm, which visualizes 3D MRI data to create 2D images (in perspective view or orthogonal view). The project was developed from scratch in C using Nvidia's CUDA library.",
+        link:"",
+        text:"",
     },
     {
         index:3,
@@ -16,6 +29,8 @@ export const projects = [
         end:'Dec. 2020',
         team_size:'Team size: 2',
         description:"We implemented a relatively new research paper that dealt with removing haze from a single image using a color attenuation model of light. This project involved estimating a depth map from the color saturation and value of a pixel which we then used to estimate and remove haze.",
+        link:"",
+        text:"",
     },
     {
         index:2,
@@ -25,6 +40,8 @@ export const projects = [
         end:'',
         team_size:'',
         description:"I created a sorting visualizer using Reactjs. The project had a few algorithms like Quick Sort, Merge Sort, Insertion Sort, Selection Sort, and Bubble Sort. Users can select the size of the array, randomize and sort the array according to the algorithm chosen.",
+        link:"https://sorting-visualizer-react.vercel.app/",
+        text:"Go to website",
     },
     {
         index:1,
@@ -34,6 +51,8 @@ export const projects = [
         end:'Mar. 2019',
         team_size:'Team size: 2',
         description:"We created a simple level-based Maze Game with collectibles. The game allowed the user to control the player by tilting the phone. We made the game from scratch on Unity Game Engine using C#.",
+        link:"",
+        text:"",
     },
     {
         index:0,
@@ -43,5 +62,7 @@ export const projects = [
         end:'Nov. 2019',
         team_size:'Team size: 2',
         description:"We created a PvZ clone that had multiple levels and supported serialization. It had a basic user interface and fully functional systems like enemies, timed sun drops, and live market. The game was made in JavaFX while trying to imitate the real game as closely as possible.",
+        link:"",
+        text:"",
     },
 ]
