@@ -74,7 +74,7 @@ function Home() {
 				<div className="flex flex-col flex-grow items-center justify-center text-center p-2 md:pl-4 mt-5 lg:mt-0 mb-0">
 					{/* name */}
 					<div
-						className="text-l sm:text-3xl md:text-5xl 
+						className="text-xl sm:text-4xl md:text-6xl 
                           w-full text-center justify-center items-center
                           font-bold tracking-wider"
 					>
@@ -83,7 +83,7 @@ function Home() {
 					</div>
 					{/* content */}
 					<div
-						className="flex-grow text-xs sm:text-sm md:text-3xl w-full
+						className="flex-grow text-sm sm:text-base md:text-4xl w-full
 								uppercase font-bold text-center 
                           		md:px-5 sm:py-5 md:py-10 
                           		font-normal tracking-widest"

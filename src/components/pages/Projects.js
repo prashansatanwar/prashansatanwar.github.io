@@ -15,9 +15,10 @@ function Projects() {
 					className="flex flex-col
                             lg:ml-10 p-5 lg:p-10 lg:w-3/4 
                             order-first lg:order-last 
-                            bg-cardcolor "
+                            bg-cardcolor 
+                            rounded-md "
 				>
-					<h1 className="tracking-widest uppercase font-extrabold text-3xl text-center py-4 border-b-2">
+					<h1 className="tracking-widest uppercase font-extrabold text-4xl text-center py-4 border-b-2">
 						Projects
 					</h1>
 					<br />

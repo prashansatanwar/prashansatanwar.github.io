@@ -23,7 +23,7 @@ function Contact() {
                             order-first lg:order-last 
                             bg-cardcolor "
 				>
-					<h1 className="tracking-widest uppercase font-extrabold text-lg sm:text-3xl text-center py-4 border-b-2">
+					<h1 className="tracking-widest uppercase font-extrabold text-4xl text-center py-4 border-b-2">
 						Contact
 					</h1>
 					<br />
@@ -31,13 +31,11 @@ function Contact() {
                     <div className='text-sm sm:text-base'>
                         <h3 className='font-semibold text-base sm:text-lg'>Stay in touch!</h3>
                         <br/>
-                        Say hi on <a href='https://twitter.com/prashansatanwar' target='_blank' rel='noreferrer' className='text-hovercolor hover:text-textcolor font-medium'>twitter</a>
-                        <br/>
-                        Or you can also mail me at <a href='mailto:prashansatanwar@gmail.com' className='font-medium text-hovercolor hover:text-textcolor'>prashansatanwar@gmail.com</a>
+                        Say hi on <a href='https://twitter.com/prashansatanwar' target='_blank' rel='noreferrer' className='text-hovercolor hover:text-textcolor font-medium'>twitter</a> or mail me at <a href='mailto:prashansatanwar@gmail.com' className='font-medium text-hovercolor hover:text-textcolor'>prashansatanwar@gmail.com</a>
 
-                        <div className='py-5 flex flex-col'>
+                        <div className='py-5 flex flex-col text-base'>
 
-                            <p className='font-medium '>Or you can find me on:</p>
+                            <p className='font-medium '>You can also find me on:</p>
                                 <a href='https://www.linkedin.com/in/prashansa-tanwar/' target='_blank' rel='noreferrer' className='text-hovercolor hover:text-textcolor'>Linkedin</a>
                                 <p className='text-sm'><a href='https://www.instagram.com/ps_palette/' target='_blank' rel='noreferrer' className='text-hovercolor hover:text-textcolor text-base'>Instagram</a> (Check it out... I like art :p)</p> 
                         </div>

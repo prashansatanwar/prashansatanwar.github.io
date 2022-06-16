@@ -21,9 +21,10 @@ function About() {
 					className="flex flex-col
                             lg:ml-10 p-5 lg:p-10 lg:w-3/4 
                             order-first lg:order-last 
-                            bg-cardcolor "
+                            bg-cardcolor 
+							rounded-md "
 				>
-					<h1 className="tracking-widest uppercase font-extrabold text-3xl text-center py-4 border-b-2">
+					<h1 className="tracking-widest uppercase font-extrabold text-4xl text-center py-4 border-b-2">
 						About me
 					</h1>
 					<br />     
@@ -34,7 +35,7 @@ function About() {
 								Link: LinkRenderer,
 								h1: ({ node, ...props }) => (
 									<h1
-										className="px-2 mt-4 mb-2 border-b-2 tracking-wider uppercase font-bold text-lg "
+										className="px-2 mt-4 mb-2 border-b-2 tracking-wider uppercase font-bold text-xl "
 										{...props}
 									></h1>
 								),

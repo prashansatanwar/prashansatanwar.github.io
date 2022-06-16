@@ -1,5 +1,16 @@
 export const projects = [
     {
+        index:6,
+        title:'BTech Project: Cognitive Brain Analysis',
+        location:'IIIT Delhi, India',
+        start:'Aug. 2021',
+        end:'May. 2022',
+        team_size:'Team size: 2',
+        description:"We focused on deriving the key insights into mistake-induced variance in performance using data analysis and visualization. We found a considerable difference in performance (i.e. reaction times). We used Shapley values to find interdependence amongst emotional attributes after training a model to distinguish individuals with extremely high values of loneliness and sadness.",
+        link:"https://drive.google.com/file/d/18PgGP70IPiBsa8Wv4CNjKQNqMEWmIXOv/view?usp=sharing",
+        text:"Poster",
+    },
+    {
         index:5,
         title:'My Portfolio Website',
         location:'',

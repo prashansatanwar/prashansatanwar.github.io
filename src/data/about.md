@@ -1,22 +1,18 @@
 # intro
 
-I'll be graduating from IIITD in about a year. Throughout my journey, I have always been a curious student and an enthusiastic learner. I love the dynamic and the ever-evolving nature of the computer science field; there is always something to explore or learn. Recently, I started exploring different fields in Computer Science to find something that interests me. I took up courses from various fields like Data Science, Machine Learning, Computer Security, etc.  
+I'm a recent graduate from Indraprastha Insitute of Information Technology, Delhi. Throughout my journey, I've always been a curious student and an enthusiastic learner. I like the dynamic nature of the computer science field; there is always something to explore or learn. Recently, I started exploring different areas in Computer Science to find something that interests me. 
 
-I like challenges and coming up with creative solutions to problems. (Have a problem that you would like to discuss? [Hit me up](mailto:prashansatanwar@gmail.com) :P)
+I like to bring a positive attitude to the table and find creative solutions to the challenges that come forth.
+
+I like to spend my time around nature, going on walks or running. When I'm not outside, I usually read books, practice yoga, or do any sort of art. You can find my art [here](https://www.instagram.com/ps_palette/)
+
+
+
+
 
 # Currently
 
-I'm working towards finishing my graduation. I'm a **permanent resident of Singapore**. I plan to settle in Singapore right after my graduation. With my newfound interest in Data Science, I'm working on some projects to further my understanding of the subject and gain experience in tools currently used in the industry.
+I've recently graduated from IIITD, and I'm actively looking for a job as a Software Engineer. I'm a **permanent resident of Singapore**.
 
-# Things that I like
 
-* Coffee
-* Running
-* Yoga
-* Playing piano/violin 
-* Music in general
-* Reading books
-* Painting
-* Drawing 
-* Literally any sort of art ([Trust me](https://www.instagram.com/ps_palette/))
 

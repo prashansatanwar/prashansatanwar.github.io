@@ -5,7 +5,7 @@ export const education = [
 		start: "Aug. 2018",
 		end: "Exp. Jul. 2022",
 		location: "New Delhi, India",
-		description: "Currently in my final year.",
+		description: "Recently graduated",
 	},
 	{
 		title: "ITL Public School",

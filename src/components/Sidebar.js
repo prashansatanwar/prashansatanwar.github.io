@@ -23,10 +23,10 @@ function Sidebar() {
 			</div>
 
 
-			<div className="py-6 border-t-2 border-b-2 border-cardcolor border-opacity-70 text-sm font-medium opacity-80">
-			I'm an enthusiastic undergraduate student at IIITD who loves to dive into projects. 
+			<div className="py-6 border-t-2 border-b-2 border-cardcolor border-opacity-70 text-sm md:text-base font-medium opacity-80">
+			I've recently graduated from IIITD.
 			I like to keep an open mind while approaching new problems. 
-			I'm currently seeking work opportunities as a Software Engineer or Data Analyst.
+			I'm currently seeking work opportunities as a Software Engineer.
 			</div>
 
 

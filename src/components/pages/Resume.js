@@ -20,24 +20,24 @@ function Resume() {
                             order-first lg:order-last 
                             bg-cardcolor "
 				>
-					<h1 className="tracking-widest uppercase font-extrabold text-3xl text-center py-4 border-b-2">
+					<h1 className="tracking-widest uppercase font-extrabold text-4xl text-center py-4 border-b-2">
 						Resume
 					</h1>
 					<br />
 
-					<h2 className="tracking-wider uppercase font-bold text-lg pl-2 mt-4 mb-2 border-b-2"> Education </h2>
+					<h2 className="tracking-wider uppercase font-bold text-xl pl-2 mt-4 mb-2 border-b-2"> Education </h2>
 					<Education/>
 					<br/>
 
-					<h2 className="tracking-wider uppercase font-bold text-lg pl-2 mt-4 mb-2 border-b-2"> Experience </h2>
+					<h2 className="tracking-wider uppercase font-bold text-xl pl-2 mt-4 mb-2 border-b-2"> Experience </h2>
 					<Experience/>
 					<br/>
 
-					<h2 className="tracking-wider uppercase font-bold text-lg pl-2 mt-4 mb-2 border-b-2"> Skills </h2>
+					<h2 className="tracking-wider uppercase font-bold text-xl pl-2 mt-4 mb-2 border-b-2"> Skills </h2>
 					<Skills/>
 					<br/>
 
-					<h2 className="tracking-wider uppercase font-bold text-lg pl-2 mt-4 mb-2 border-b-2"> Courses </h2>
+					<h2 className="tracking-wider uppercase font-bold text-xl pl-2 mt-4 mb-2 border-b-2"> Courses </h2>
 					<Courses/>
 					<br/>
 
