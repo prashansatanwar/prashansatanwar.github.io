@@ -7,18 +7,22 @@ import Courses from "../Resume/Courses";
 
 function Resume() {
 	return (
-		<div className="flex flex-grow z-10 justify-center font-raleway tracking-wide my-20 h-full w-full">
+		<div className="flex flex-grow 
+					z-10 py-20 min-h-screen min-w-screen
+					justify-center 
+					font-raleway tracking-wide text-textcolor dark:text-darktextcolor
+					">
 			<div
 				className="flex flex-col lg:flex-row 
-                                px-5 md:px-32 w-full 
-                                justify-center"
+                            z-10 px-5 md:px-32 w-full 
+                            justify-center"
 			>
 				<Sidebar />
 				<div
 					className="flex flex-col
                             lg:ml-10 p-5 lg:p-10 lg:w-3/4 
                             order-first lg:order-last 
-                            bg-cardcolor "
+                            bg-cardcolor dark:bg-darkcardcolor"
 				>
 					<h1 className="tracking-widest uppercase font-extrabold text-4xl text-center py-4 border-b-2">
 						Resume
@@ -41,7 +45,7 @@ function Resume() {
 					<Courses/>
 					<br/>
 
-					<a href='Resume.pdf' target="" download="prashansatanwar_resume" className="text-hovercolor hover:text-textcolor">Download Resume</a>
+					<a href='Resume.pdf' target="" download="prashansatanwar_resume" className="text-hovercolor dark:text-darkhovercolor hover:text-textcolor dark:hover:text-darktextcolor">Download Resume</a>
 				</div>
 			</div>
 		</div>

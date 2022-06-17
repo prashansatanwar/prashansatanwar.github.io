@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 
 function CategoryButton({ category , selected, setSelected}) {
-	const classic = {borderColor:'#F0F0F0', borderRadius:'10px',borderWidth:'3px'};
-	const hovered = { borderColor: category.color, borderRadius:'10px',borderWidth:'3px'};
-    const selected_style = {background: category.color, borderColor: category.color,color:'white',borderRadius:'10px',borderWidth:'3px'}
+
+	let classic,hovered,selected_style;
+
+	if (window.localStorage.getItem('color-theme') === 'dark'){
+
+		classic = {borderColor:'transparent', borderRadius:'10px',borderWidth:'3px'};
+		hovered = { borderColor: category.darkcolor, borderRadius:'10px',borderWidth:'3px'};
+		selected_style = {background: category.darkcolor, borderColor: category.darkcolor,color:'white',borderRadius:'10px',borderWidth:'3px'}
+	}
+	else{
+		classic = {borderColor:'transparent', borderRadius:'10px',borderWidth:'3px'};
+		hovered = { borderColor: category.color, borderRadius:'10px',borderWidth:'3px'};
+		selected_style = {background: category.color, borderColor: category.color,color:'white',borderRadius:'10px',borderWidth:'3px'}
+	}
 
 	const [hover, setHover] = useState(false);
 

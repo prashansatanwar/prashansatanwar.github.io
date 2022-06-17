@@ -112,26 +112,32 @@ export const categories = [
     {
         title:'All',
         color:'#B7094C',
+        darkcolor:'#61075B',
     },
     {
         title:'Languages',
         color:'#723C70',
+        darkcolor:'#4C2F5A',
     },
     {
         title:'Data Science',
         color:'#5C4D7D',
+        darkcolor:'#463D64',
     },
     {
         title:'Tools & Technologies',
         color:'#455E89',
+        darkcolor:'#36426B',
     },
     {
         title:'Web Development',
         color:'#2E6F95',
+        darkcolor:'#244475',
     },
     {
         title:'Miscellaneous',
         color:'#1780A1',
+        darkcolor:'#12497F',
         priority:-1,
     },
 ]

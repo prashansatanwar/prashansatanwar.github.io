@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "./routes";
+import ThemeToggle from "../theme/ThemeToggle";
 
-const NavBar = ({ toggle,setOpen }) => {
+const NavBar = ({ toggle,setOpen,reload}) => {
 	return (
-		<nav className="fixed top-0 z-50 font-raleway font-medium tracking-wider flex bg-cardcolor text-textcolor shadow-sm w-full h-10">
+		<nav className="fixed top-0 z-50 font-raleway font-medium tracking-wider flex bg-cardcolor dark:bg-darkcardcolor text-textcolor dark:text-darktextcolor shadow-sm w-full h-10">
 			<Link
 				to="/"
-				className="text-sm tems-center justify-center h-full border-bgcolor border-r-2 py-2 px-4 tracking-widest hover:text-hovercolor"
+				className="text-sm items-center justify-center h-full border-bgcolor dark:border-darkbgcolor border-r-2 py-2 px-4 tracking-widest hover:text-hovercolor dark:hover:text-darkhovercolor"
 				onClick={()=>setOpen(false)}
 			>
 				<b>PRASHANSA TANWAR</b>
@@ -19,16 +20,24 @@ const NavBar = ({ toggle,setOpen }) => {
 					.map((l, index) => (
 						<Link
 							key={index}
-							className="border-bgcolor border-r-2 px-2 uppercase hover:text-hovercolor"
+							className="border-bgcolor dark:border-darkbgcolor border-r-2 px-2 uppercase hover:text-hovercolor dark:hover:text-darkhovercolor"
 							to={l.path}
 						>
 							{l.label}
 						</Link>
 					))}
+					
 			</div>
 
+
+			<div className="ml-1 md:ml-auto mr-2 my-auto items-center justify-center"
+				onClick={reload}>
+				<ThemeToggle/>
+			</div>
+
+
 			<div
-				className="sm:block md:hidden m-auto inline-flex items-center mr-1 cursor-pointer hover:text-hovercolor"
+				className="sm:block md:hidden m-auto inline-flex items-center mr-1 cursor-pointer hover:text-hovercolor dark:hover:text-darkhovercolor"
 				onClick={toggle}
 			>
 				<svg

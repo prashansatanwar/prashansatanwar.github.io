@@ -300,25 +300,31 @@ export const categories = [
     {
         title:'All',
         color:'#B7094C',
+        darkcolor:'#61075B',
     },
     {
         title:'Computer Science',
         color:'#723C70',
+        darkcolor:'#4C2F5A',
     },
     {
         title:'Electronics',
         color:'#5C4D7D',
+        darkcolor:'#463D64',
     },
     {
         title:'Mathematics',
         color:'#455E89',
+        darkcolor:'#36426B',
     },
     {
         title:'Design',
         color:'#2E6F95',
+        darkcolor:'#244475',
     },
     {
         title:'Non-Technical',
         color:'#1780A1',
+        darkcolor:'#12497F',
     },
 ]

@@ -13,13 +13,13 @@ function Menu({ open, toggle }) {
 			onClick={toggle}
 			
 		>
-			<div className="py-2 flex flex-col text-center bg-cardcolor bg-opacity-90 w-full h-full">
+			<div className="py-2 flex flex-col text-center text-textcolor dark:text-darktextcolor bg-cardcolor dark:bg-darkcardcolor bg-opacity-90w-full h-full">
 				{routes
 					.filter((l) => !l.index)
 					.map((l, index) => (
 						<Link
 							key={index}
-							className="uppercase py-2 text-sm hover:bg-bgcolor hover:bg-opacity-40"
+							className="uppercase py-2 text-sm hover:bg-bgcolor dark:hover:bg-darkbgcolor hover:bg-opacity-40"
 							to={l.path}
 						>
 							{l.label}

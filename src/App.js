@@ -9,6 +9,7 @@ import Projects from "./components/pages/Projects";
 import Contact from "./components/pages/Contact";
 import Menu from "./components/Menu";
 import particlesConfig from './data/particlesConfig.json'
+import particlesDark from './data/particlesDark.json'
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -29,19 +30,37 @@ function App() {
         window.removeEventListener('resize',hideMenu)
     };
   });
+  
+  const reload = () => {
+    window.location.reload();
+  }
 
   return (
     <>
-      <NavBar toggle={toggle} setOpen={setOpen}/>
+      
+      <NavBar toggle={toggle} setOpen={setOpen} reload={reload}/>
       <Menu open={open} toggle={toggle} />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/resume" component={Resume} />
-        <Route exact path="/projects" component={Projects} />
-        <Route exact path="/contact" component={Contact} />
-      </Switch>
-      <Particles params={particlesConfig} className='z-0 w-full h-full fixed top-0'/>
+
+      {window.localStorage.getItem('color-theme')==='dark'
+      ? <Particles params={particlesDark} className='z-0 w-full h-full fixed top-0 opacity-30'/>
+      : <Particles params={particlesConfig} className='z-0 w-full h-full fixed top-0'/>
+      }
+      
+      
+      
+
+
+      <div className="z-10 min-w-screen min-h-screen m-auto flex-col items-center justify-center bg-bgcolor dark:bg-darkbgcolor">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/resume" component={Resume} />
+          <Route exact path="/projects" component={Projects} />
+          <Route exact path="/contact" component={Contact} />
+        </Switch>
+
+      </div>
+
     </>
   );
 }

@@ -3,7 +3,8 @@ import { social_links } from "../routes.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const content = ["Student ", "Learner ", "Artist ", "Dreamer... ", ""];
-const colors = ["#184e77","#1a759f","#34a0a4","#76c893",""]
+const colors = ["#184e77","#1a759f","#34a0a4","#76c893",""];
+const darkcolors = ['#F0ACC4','#E1BFBF','#CDD8B9','#AFFCAF',''];
 
 const useInterval = (callback, delay) => {
 	const savedCallback = useRef();
@@ -48,12 +49,12 @@ function Home() {
 	);
 
 	return (
-		<div className="flex flex-grow z-10 justify-center items-center font-raleway m-5 mb-0 h-full w-full tracking-wide">
+		<div className="flex flex-grow z-10 min-h-screen min-w-screen items-center justify-center font-raleway text-textcolor dark:text-darktextcolor tracking-wide">
 			{/* info-card */}
 			<div
 				className="flex flex-col md:flex-row lg:inline-flex lg:flex-row 
                     justify-center items-center
-                    p-10 pt-0 
+                    z-10 p-10 pt-0 
                     h-full w-10/12"
 			>
 				{/* picture */}
@@ -61,7 +62,7 @@ function Home() {
 					className="relative md:flex-shrink-0 rounded-full 
                       h-32 w-32 xsm:h-52 xsm:w-52 sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96
                       lg:ml-14 
-                      bg-cardcolor"
+                      bg-cardcolor dark:bg-darkcardcolor"
 				>
 					<div
 						className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
@@ -79,7 +80,7 @@ function Home() {
                           font-bold tracking-wider"
 					>
 						Hi, I'm <br className="sm:hidden" />{" "}
-						<span className="text-red-700">Prashansa Tanwar</span>
+						<span className="text-red-700 dark:text-red-400">Prashansa Tanwar</span>
 					</div>
 					{/* content */}
 					<div
@@ -87,7 +88,11 @@ function Home() {
 								uppercase font-bold text-center 
                           		md:px-5 sm:py-5 md:py-10 
                           		font-normal tracking-widest"
-								style={{color:colors[ind]}}
+								style={
+									window.localStorage.getItem('color-theme') === 'dark' 
+									? {color:darkcolors[ind]}
+									: {color:colors[ind]}
+								}
 					>
 						{curr} &nbsp;
 					</div>
@@ -105,12 +110,12 @@ function Home() {
 										target="_blank"
 										rel="noreferrer"
 										key={index}
-										className="text-gray-600 hover:text-textcolor"
+										className="text-gray-600 dark:text-white hover:text-hovercolor dark:hover:text-darkhovercolor"
 									>
 										<FontAwesomeIcon
 											icon={l.icon}
 											size="sm"
-											className="rounded-full mx-2 hover:shadow-lg"
+											className="rounded-full mx-2"
 										/>
 									</a>
 								))}
@@ -122,12 +127,13 @@ function Home() {
 										target=""
 										download="prashansatanwar_resume"
 										key={index}
-										className="text-gray-600 hover:text-textcolor"
+										className="text-gray-600 dark:text-white hover:text-hovercolor dark:hover:text-darkhovercolor"
 									>
 										<FontAwesomeIcon
 											icon={l.icon}
 											size="sm"
-											className="rounded-full mx-2 hover:shadow-lg"
+											color='#000'
+											className="rounded-full mx-2"
 										/>
 									</a>
 								))}
@@ -142,12 +148,12 @@ function Home() {
 										target="_blank"
 										rel="noreferrer"
 										key={index}
-										className="text-gray-600 hover:text-textcolor"
+										className="text-gray-600 dark:text-white hover:text-hovercolor dark:hover:text-darkhovercolor"
 									>
 										<FontAwesomeIcon
 											icon={l.icon}
 											size="lg"
-											className="rounded-full mx-2 hover:shadow-lg"
+											className="rounded-full mx-2"
 										/>
 									</a>
 								))}
@@ -159,12 +165,12 @@ function Home() {
 										target=""
 										download="prashansatanwar_resume"
 										key={index}
-										className="text-gray-600 hover:text-textcolor"
+										className="text-gray-600 dark:text-white hover:text-hovercolor dark:hover:text-darkhovercolor"
 									>
 										<FontAwesomeIcon
 											icon={l.icon}
 											size="lg"
-											className="rounded-full mx-2 hover:shadow-lg"
+											className="rounded-full mx-2"
 										/>
 									</a>
 								))}

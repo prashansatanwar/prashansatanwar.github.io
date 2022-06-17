@@ -23,7 +23,7 @@ function Courses() {
                     .sort((a,b)=>(a.sem>b.sem)? 1:-1)
                     .map((l, index) => (
                         
-                        <a key={index} className='text-sm px-4  tracking-widest opacity-80 border-r-2 border-l-2 border-bgcolor' href={l.link} target='_blank' rel='noreferrer'> <span className='font-medium' >{l.code}</span> {l.title}</a>
+                        <a key={index} className='text-sm px-4  tracking-widest opacity-80 border-r-2 border-l-2 border-bgcolor dark:border-darkbgcolor' href={l.link} target='_blank' rel='noreferrer'> <span className='font-medium' >{l.code}</span> {l.title}</a>
                 ))}
             
             </div>

@@ -8,7 +8,7 @@ function Education() {
                 <div key={index} className='py-2'>
                     <div  className='flex flex-col sm:flex-row py-1 sm:py-0 pl-2'>
                         <div className='flex-grow font-semibold'>{l.title}</div>
-                        <div className='text-xs' style={{color:'#2E6F95'}}>{l.location}</div>
+                        <div className='text-xs text-locationcolor dark:text-darklocationcolor'>{l.location}</div>
                     </div>
                     <div className='flex flex-col sm:flex-row py-1 sm:py-0 pl-2'>
                         <div className='flex-grow text-xs opacity-50 font-semibold'>{l.degree}</div>

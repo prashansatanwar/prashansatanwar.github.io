@@ -23,7 +23,7 @@ function Sidebar() {
 			</div>
 
 
-			<div className="py-6 border-t-2 border-b-2 border-cardcolor border-opacity-70 text-sm md:text-base font-medium opacity-80">
+			<div className="py-6 border-t-2 border-b-2 border-cardcolor dark:border-darkcardcolor border-opacity-70 text-sm md:text-base font-medium opacity-80">
 			I've recently graduated from IIITD.
 			I like to keep an open mind while approaching new problems. 
 			I'm currently seeking work opportunities as a Software Engineer.
@@ -40,7 +40,7 @@ function Sidebar() {
 								target="_blank"
 								rel="noreferrer"
 								key={index}
-								className="hover:text-hovercolor"
+								className="hover:text-hovercolor dark:hover:text-darkhovercolor"
 							>
 								<FontAwesomeIcon
 									icon={l.icon}
@@ -57,7 +57,7 @@ function Sidebar() {
 								target=""
 								download="prashansatanwar_resume"
 								key={index}
-								className="hover:text-hovercolor"
+								className="hover:text-hovercolor dark:hover:text-darkhovercolor"
 							>
 								<FontAwesomeIcon
 									icon={l.icon}
