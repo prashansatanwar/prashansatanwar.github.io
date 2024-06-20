@@ -106,13 +106,13 @@ function Projects() {
     }
 
     return (
-        <div className='p-4 min-h-screen w-full flex flex-col'>
-            <div className='p-4 text-left font-bold text-8xl'>
+        <div className='p-4 pt-12 min-h-screen w-full flex flex-col '>
+            <div className='p-4 text-left font-bold text-8xl text-[#F2E0BD]'>
                 Projects.
             </div>
 
-            <div className='flex p-2 px-4'>
-                <div className='flex-grow flex bg-[#FEFAE0] p-2 rounded-md'>
+            <div className='flex p-2 px-4 text-[#F2E0BD]'>
+                <div className='flex-grow flex bg-[#F2E0BD] bg-opacity-20 p-2 rounded'>
                     <input id='input-tags' className='flex-grow' placeholder='Search...'
                             onKeyPress={handleInputKeyPress}/>
                     <div className='flex items-center hover:cursor-pointer hover:text-blue-800' onClick={handleButtonClick}>
@@ -121,7 +121,7 @@ function Projects() {
                         </svg>
                     </div>
                 </div>
-                <div className='ml-2 flex items-center hover:cursor-pointer hover:text-blue-800' onClick={() => setDrop(!drop)} >
+                <div className='ml-2 flex items-center hover:cursor-pointer hover:text-[#385B94]' onClick={() => setDrop(!drop)} >
                     {drop
                         ? 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-up-fill h-6" viewBox="0 0 16 16">
@@ -136,9 +136,12 @@ function Projects() {
                 </div>
             </div>
 
-            <div className='flex flex-wrap px-4 max-h-[8em] overflow-y-auto'>
+            <div className='flex flex-wrap px-4 max-h-[8em] overflow-y-auto '>
                 {drop &&  Array.from(tags).map((tag, ind) => (
-                    <div key={ind} className={`p-1 px-2 mx-1 mb-1 rounded-md text-white hover:cursor-pointer flex ${exists(tag, selectedTags) ? "bg-[#7f5539]" : "bg-[#6b705c]" }`} onClick={() => filter(tag)}>
+                    <div key={ind} className={`p-1 px-2 mx-1 mb-1 rounded-md 
+                                                text-[#F2E0BD] hover:cursor-pointer flex 
+                                                border-2 border-transparent hover:border-[#385B94] 
+                                                ${exists(tag, selectedTags) ? "bg-[#385B94]" : "" }`} onClick={() => filter(tag)}>
                         {tag}
                     </div>
                 ))}

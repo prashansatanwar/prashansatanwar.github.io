@@ -21,9 +21,9 @@ function ProjectCard({project}) {
     }, [project.image]);
 
     return (
-        <div className='m-1 rounded-lg overflow-hidden
-                        shadow-lg hover:
-                        bg-white' >
+        <div className='m-1 rounded overflow-hidden
+                        border-4 border-double text-white bg-white bg-opacity-10
+                        border-[#F2E0BD]' >
 
             <div className='h-32 bg-black overflow-hidden'>
                 <img src={project.image} className='w-full'/>
@@ -53,12 +53,15 @@ function ProjectCard({project}) {
 
                     <div className='py-2 flex text-sm'>
                         {project.github.length>0 && 
-                            <a className='p-1 px-2 bg-gray-600 rounded-md text-white' href={project.github}>Github</a>
+                            <a className='p-1 px-2 bg-gray-600 rounded text-white' href={project.github} target="_blank">Github</a>
                         }
                         {project.link.length > 0 && 
-                            <a className='ml-2 p-1 px-2 bg-purple-600 rounded-md text-white' href={project.link}>Website</a>
+                            <a className='ml-2 p-1 px-2 bg-purple-600 rounded text-white' href={project.link} target="_blank">Website</a>
                         }
-                        <div className='ml-auto p-1 px-2 bg-[#7f5539] hover:cursor-pointer rounded-md text-white'>Read More</div>
+                        {project.blog.length > 0 && 
+                            <a className='ml-auto p-1 px-2 bg-[#7f5539] hover:cursor-pointer rounded text-white' href={project.blog} target="_blank">Read More</a>
+                        }
+                        
                     </div>
                 </div>
 

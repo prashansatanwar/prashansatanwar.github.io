@@ -7,6 +7,7 @@ export const projects = [
         github: "https://github.com/prashansatanwar/MindMeld",
         link: "https://mind-meld-beta.vercel.app/",
         image: "assets/images/mindmeld.png",
+        blog: ""
     },
     {
         title: "RShell",
@@ -16,6 +17,7 @@ export const projects = [
         github: "https://github.com/prashansatanwar/shell-rust",
         link: "",
         image: "assets/images/shellrust.png",
+        blog: ""
     },
     {
         title: "Ping Pong",
@@ -25,6 +27,7 @@ export const projects = [
         github: "https://github.com/prashansatanwar/ping-pong-rust",
         link: "",
         image: "assets/images/pingpong.png",
+        blog: ""
     },
     {
         title: "Tetris",
@@ -34,6 +37,7 @@ export const projects = [
         github: "https://github.com/prashansatanwar/tetris-rust",
         link: "",
         image: "assets/images/tetris.png",
+        blog: ""
     },
 
 ];
@@ -47,4 +51,5 @@ export const projects = [
 //     github: "",
 //     link: "",
 //     image:"",
+//     blog: ""
 // }
