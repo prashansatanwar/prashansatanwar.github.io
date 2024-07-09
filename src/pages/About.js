@@ -1,7 +1,6 @@
 import React from 'react'
 import { social_links } from '../data/links';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMedium } from '@fortawesome/free-brands-svg-icons/faMedium';
 
 function About() {
   return (
