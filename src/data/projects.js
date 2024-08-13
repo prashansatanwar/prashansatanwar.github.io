@@ -39,6 +39,16 @@ export const projects = [
         image: "assets/images/tetris.png",
         blog: ""
     },
+    {
+        title: "Query Interpreter", 
+        date: "August 2024",
+        description: "This is an AI-powered data interaction application. This application allows user to use natural language to fetch data from a database. This is a tool that will enable users that does not possess SQL expertise to interact with the data, making the data more accessible to a wider set of audience.",
+        tags: ['Python', 'Flask', 'Gemini', 'SQL', 'LLM'],
+        github: "https://github.com/prashansatanwar/ByteGenie",
+        link: "",
+        image:"assets/images/queryinterpreter.png",
+        blog: ""
+    }
 
 ];
 
