@@ -6,7 +6,7 @@ function About() {
   return (
     <div className='min-h-screen w-full flex flex-col text-white'>
       <div className='p-4 pt-12 sm:h-screen flex flex-col items-center '>
-        <div className='pt-2 px-4 w-full text-left font-bold text-8xl text-[#F2E0BD]'>
+        <div className='pt-2 px-4 w-full text-left font-bold text-7xl md:text-8xl text-[#F2E0BD]'>
             About me.
         </div>
 
