@@ -1,136 +1,108 @@
-import React, { useEffect } from 'react'
-import { social_links } from '../data/links';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState, useRef } from 'react'
+import Hello from './Hello'
+import Skills from './Skills';
+import NavBar from '../components/NavBar';
+import Projects from './Projects';
+import Contact from './Contact';
 
 function Home() {
-    const introText = "Hello, I'm \n Prashansa!!";
+    const [current, setCurrent] = useState("slide1");
+    const containerRef = useRef(null);
+    const [visibleSection, setVisibleSection] = useState(null);
 
-    // useEffect(() => {
+    useEffect(() => {
+    const observer = new IntersectionObserver(
+        (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+            setVisibleSection(entry.target.id);
+            }
+        });
+        },
+        { root: containerRef.current, threshold: 0.5 }
+    );
 
-    //     document.querySelectorAll(".bouncing-letters>span").forEach((element) => {
-    //         element.addEventListener("mouseover", (e) => bounce(e.target));
-    //     });
+    const sections = document.querySelectorAll("section");
+    sections.forEach((sec) => observer.observe(sec));
 
-    //     function bounce(letter) {
-    //         if (!letter.classList.contains("bounce")) {
-    //             letter.classList.add("bounce");
-    //             setTimeout(
-    //                 function () {
-    //                     letter.classList.remove("bounce");
-    //                 },
-    //                 1000
-    //             );
-    //         }
-    //     }
+    return () => observer.disconnect();
+    }, []);
 
-    // })
-  return (
-    <div className='min-h-screen w-full flex flex-col bg-[#507255] p-4'> 
-        <div className='flex-grow flex flex-col justify-center tracking-widest text-[#F2E0BD]'>
-            <div className='text-9xl font-extrabold p-4'>
-                Hello;
-            </div>
-            <div className='text-xl opacity-80'>
-                I'm <span className='font-bold'>Prashansa</span>, a developer in the making.
-            </div>
-        </div>
 
-        <div className='flex m-4 mt-auto items-center justify-center'>
-            <div className='flex-grow m-2 h-[2px] rounded-lg bg-[#F2E0BD] opacity-50'>
+    useEffect(() => {
+        const container = containerRef.current;
 
-            </div>
-            <div className='flex'>
-                {social_links.map((l, k) => (
-                    <a
-                        href={l.path}
-                        target="_blank"
-                        rel="noreferrer"
-                        key={k}
-                        className='mx-2 '
-                    >
-                    <FontAwesomeIcon
-                        icon={l.icon}
-                        size="lg" 
-                        className="p-2 rounded-full bg-[#F2E0BD]"
-                        />
-                    </a>
-                ))}
-            </div>
+        const handleScroll = () => {
+            const slides = ["slide1", "slide2", "slide3", "slide4"];
+            slides.forEach(id => {
+                const elem = document.getElementById(id);
+                if (elem) {
+                    const rect = elem.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+                    const offsetTop = rect.top - containerRect.top;
 
-        </div>
+                    if (offsetTop <= container.clientHeight / 2 && offsetTop + rect.height >= container.clientHeight / 2) {
+                        setCurrent(id);
+                    }
+                }
+            });
+        };
 
-           
-        
-            {/* <div className='mb-10 h-60 md:h-80 aspect-square flex justify-center items-center relative  '>
-                <div className='absolute h-60 md:h-80 aspect-square flex'>
-                    <div className='h-1/2 w-1/2 border-t-2 border-l-2 border-[#FEFAE0] pt-1 pl-1'>
-                        <div className='h-3/4 w-3/4 border-t-2 border-l-2 border-[#FEFAE0] top-0'>
+        container.addEventListener("scroll", handleScroll);
+        return () => container.removeEventListener("scroll", handleScroll);
+    }, []);
 
-                        </div>
-                    </div>
-                    <div className='h-1/2 w-1/2 mt-auto border-b-2 border-r-2 border-[#FEFAE0] pb-1 pr-1 flex'>
-                        <div className='h-3/4 w-3/4 border-b-2 border-r-2 border-[#FEFAE0] mt-auto ml-auto'>
+    return (
+        <>
+            <NavBar currentId={current.at(-1)} />
+            <div className='relative min-h-screen '>
+                {/* Navigation */}
+                <nav className='fixed min-h-screen top-[60%] right-10 flex flex-col items-center gap-3 z-50'>
+                    {["slide1","slide2","slide3","slide4"].map((id, i) => (
+                        <a
+                            key={id}
+                            onClick={() => {
+                                const target = document.getElementById(id);
+                                if (target && containerRef.current) {
+                                    containerRef.current.scrollTo({
+                                        top: target.offsetTop,
+                                        behavior: "smooth"
+                                    });
+                                }
+                            }}
+                            className={`
+                                transition-transform transform origin-center duration-300 delay-150 cursor-pointer
+                                ${current === id 
+                                    ? `h-3 w-3 rotate-0 bg-none border-[1px] scale-150 ${current.at(-1)%2 === 0 ? "border-primary" : "border-secondary"}` 
+                                    : `h-1.5 w-1.5 rotate-45 border-none ${current.at(-1)%2 === 0 ? "bg-primary" : "bg-secondary"}`
+                                }
+                            `}
+                        >
+                            &nbsp;
+                        </a>
+                    ))}
+                </nav>    
 
-                        </div>
-                    </div>
-
-                </div>
-
-                <a href="https://github.com/prashansatanwar" 
-                    target='_blank'
-                    className='opacity-0 absolute h-48 md:h-60 aspect-square bg-gray-700 hover:backdrop-contrast-125 flex items-center justify-center hover:opacity-50 text-white'>
-                        Go to github
-                </a>
-                <div className='h-48 md:h-60 aspect-square overflow-clip hover:opacity-60 hover:cursor-pointer'>
-                    <img 
-                        className=''
-                        src='assets/images/me.png'    
-                    />
-                </div>
-            </div>
-
-            <div className='flex justify-center w-full lg:w-3/4 h-full'>
-
-                <div className='pt-1 border-t-2 border-[#FEFAE0] flex-grow'>
-                    <div className='ml-auto h-full border-t-2 border-[#FEFAE0] w-4/5'>
-
-                    </div>
-                </div>
-                
-                <div className='text-[#7f5539]'>
-                    <div className='p-2 text-4xl md:text-6xl font-bold'>
-                        <span className=''>
-                            Hello, I'm 
-                        </span>
-                        <span className='text-[#FEFAE0] font-extrabold'> Prashansa! </span>
-                    </div> 
-                    <div className='md:text-xl'>
-                        This is my  
-                        <span className='font-bold'> Portfolio. </span>
-                    </div>
-                </div>
-
-                <div className='pb-1 border-b-2 border-[#FEFAE0] flex-grow'>
-                    <div className='h-full border-b-2 border-[#FEFAE0] w-4/5'>
-
-                    </div>
+                {/* Scrollable container */}
+                <div 
+                    ref={containerRef} 
+                    className='flex flex-col snap-y snap-mandatory h-screen overflow-y-scroll'>
+                    <section id="slide1" className='snap-center min-h-[90%] flex justify-center items-center'>
+                        <Hello visible={visibleSection === "slide1"}/>
+                    </section>
+                    <section id="slide2" className='snap-center min-h-screen flex justify-center items-center'>
+                        <Skills visible={visibleSection === "slide2"}/>
+                    </section>
+                    <section id="slide3" className='snap-center min-h-screen flex justify-center items-center'>
+                        <Projects visible={visibleSection === "slide3"}/>
+                    </section>
+                    <section id="slide4" className='snap-center min-h-screen bg-yellow-400 flex justify-center items-center'>
+                        <Contact visible={visibleSection === "slide4"}/>
+                    </section>
                 </div>
             </div>
-
-
-            <div className='mt-8'>
-            </div> */}
-
-
-            {/* <div className='text-9xl text-left text-violet-400 font-extrabold bouncing-letters'>
-                {introText.split("").map((letter, ind) => (
-                    letter == '\n' 
-                        ? <br key={ind}></br> 
-                        : <span key={ind} className="bounce-anim mix-blend-difference ">{letter}</span>
-                ))}
-            </div> */}
-    </div>
-  )
+        </>
+    )
 }
 
 export default Home

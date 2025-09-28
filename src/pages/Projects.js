@@ -1,177 +1,139 @@
-import React, { useEffect, useState } from 'react'
-import { projects } from '../data/projects'
-import ProjectCard from '../components/ProjectCard'
-import { RevealOnScroll } from '../components/RevealOnScroll'
+import React, { useState, useEffect, useRef } from 'react';
+import { projects as proj } from '../data/projects';
+import ProjectGalleryCard from '../components/ProjectGalleryCard';
+import { useNavigate } from 'react-router-dom';
 
+const monthMap = {
+  January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
+  July: 6, August: 7, September: 8, October: 9, November: 10, December: 11
+};
 
-
-function Projects() {
-    const [filteredProjects, setFilteredProjects] = useState(projects);
-    const [tags, setTags] = useState([]);
-    const [selectedTags, setSelectedTags] = useState(["All"]);
-    const [inputTags, setInputTags] = useState([]);
-    const [drop, setDrop] = useState(false);
-
-    useEffect(() => {
-        let newTags = new Set();
-        projects.map((project) => (
-            project.tags.map((tag) => (
-                newTags.add(tag)
-            ))
-        ))
-        setTags(newTags);
-    }, [filteredProjects,projects])
-    
-
-    function filter(t) {
-        let updatedTags;
-        if(t === "All") {
-            updatedTags = ["All"];
-        }
-        else {
-            if(selectedTags.includes(t)) {
-                updatedTags = selectedTags.filter((tg) => tg !== t)
-            }
-            else {
-                updatedTags = [...selectedTags, t];
-            }
-
-            if(updatedTags.includes("All")) {
-                updatedTags = updatedTags.filter((tg) => tg !== "All")
-            }
-        }
-
-        if(updatedTags.length === 0) {
-            updatedTags = ["All"]
-        }
-        setSelectedTags(updatedTags);
-
-        let updatedProjects = new Set();
-        updatedTags.map((tg) => (
-            projects.map((project) => (
-                tg.length>0 && project.tags.includes(tg) && updatedProjects.add(project)
-            ))
-        ))
-        console.log(selectedTags)
-
-        setFilteredProjects(Array.from(updatedProjects))
-        if(updatedTags.length === 1 && updatedTags[0] == "All") {
-            document.getElementById('input-tags').value ='';
-        }
-        else {   
-            document.getElementById('input-tags').value = updatedTags.join(" ");
-        }
-
-    }
-
-    function handleInputKeyPress(event) {
-        if (event.key === 'Enter') {
-            let input = event.target.value.trim();
-            let inTags = [];
-            Array.from(input.split(" ")).map((tg) => {
-                inTags.push(tg)
-            })
-
-            if(input.length === 0) {
-                inTags.push("All");
-            }
-            let updatedProjects = new Set();
-            inTags.map((tg) => (
-                projects.map((project) => (
-                    tg.length>0 && exists(tg, project.tags) && updatedProjects.add(project)
-                ))
-            ))
-            setFilteredProjects(Array.from(updatedProjects))
-            setSelectedTags(inTags)
-        }
-    }
-
-    function exists(tag, tags) {
-        for (const tg of tags) {
-            if (tg.toLowerCase() === tag.toLowerCase()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    function handleButtonClick() {
-        const enterKeyPressEvent = {
-            key: 'Enter',
-            target: {
-                value: document.getElementById('input-tags').value.trim()
-            }
-        };
-        handleInputKeyPress(enterKeyPressEvent);
-    }
-
-    return (
-        <div className='p-4 pt-12 min-h-screen w-full flex flex-col '>
-            <div className='p-4 w-full text-left font-bold text-7xl md:text-8xl text-[#F2E0BD]'>
-                Projects.
-            </div>
-
-            <div className='flex p-2 px-4 text-[#F2E0BD]'>
-                <div className='flex-grow flex bg-[#F2E0BD] bg-opacity-20 p-2 rounded'>
-                    <input id='input-tags' className='flex-grow' placeholder='Search...'
-                            onKeyPress={handleInputKeyPress}/>
-                    <div className='flex items-center hover:cursor-pointer hover:text-blue-800' onClick={handleButtonClick}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-search h-4" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                        </svg>
-                    </div>
-                </div>
-                <div className='ml-2 flex items-center hover:cursor-pointer hover:text-[#385B94]' onClick={() => setDrop(!drop)} >
-                    {drop
-                        ? 
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-up-fill h-6" viewBox="0 0 16 16">
-                            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                        </svg>
-                        : 
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill h-6" viewBox="0 0 16 16">
-                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                        </svg>
-                    }
-                    
-                </div>
-            </div>
-
-            <div className='flex flex-wrap px-4 max-h-[8em] overflow-y-auto '>
-                {drop &&  Array.from(tags).map((tag, ind) => (
-                    <div key={ind} className={`p-1 px-2 mx-1 mb-1 rounded-md 
-                                                text-[#F2E0BD] hover:cursor-pointer flex 
-                                                border-2 border-transparent hover:border-[#385B94] 
-                                                ${exists(tag, selectedTags) ? "bg-[#385B94]" : "" }`} onClick={() => filter(tag)}>
-                        {tag}
-                    </div>
-                ))}
-
-
-                
-            </div>
-
-           {filteredProjects.length>0
-            ?
-            <div className='columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2 space-y-2 p-4'>
-                {filteredProjects.toReversed().map((project,ind) => (
-                    <div className='overflow-hidden' key={ind}>
-                        <RevealOnScroll ind={ind}>
-                            <ProjectCard project={project} />
-                        </RevealOnScroll>
-                    </div>
-                ))}
-            </div>
-            :
-            <div className='flex justify-center p-4'>
-                <img src='assets/images/think.png' className=''></img>
-            </div>
-           } 
-
-            
-
-
-        </div>
-    )
+function parseMonthYear(str) {
+  const [month, year] = str.split(" ");
+  return new Date(parseInt(year), monthMap[month], 1);
 }
 
-export default Projects
+function Typewriter({ text = "", speed = 150, start = false, onComplete }) {
+  const [displayed, setDisplayed] = useState("");
+  const idxRef = useRef(0);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (!start || displayed.length === text.length) return; 
+
+    setDisplayed("");
+    idxRef.current = 0;
+    const chars = Array.from(text);
+
+    intervalRef.current = setInterval(() => {
+      const i = idxRef.current;
+      if (i < chars.length) {
+        setDisplayed(prev => prev + chars[i]);
+        idxRef.current += 1;
+      } else {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+        if (onComplete) onComplete(); 
+      }
+    }, speed);
+
+    return () => clearInterval(intervalRef.current);
+  }, [start, text, speed, onComplete]);
+
+  return <span>{displayed}</span>;
+}
+
+
+function Projects({ visible }) {
+  const [displayOutput, setDisplayOutput] = useState(false);
+  const [displayNextCommand, setDisplayNextCommand] = useState(false);
+  const navigate = useNavigate();
+
+  const projects = [...proj].sort((a, b) => parseMonthYear(b.date) - parseMonthYear(a.date));
+
+  return (
+    <div className='h-[100%] px-5 lg:pl-28 lg:pr-26 pt-[10%] lg:pt-[8%] w-full flex flex-col md:flex-row gap-4 bg-primary text-secondary'>
+      <div className='mb-5 -mt-10 md:m-0 md:p-4 h-1/3 md:h-auto md:w-1/4 lg:w-1/5 
+                      flex gap-2 md:gap-0 md:flex-col 
+                      items-stretch justify-center 
+                      order-last md:order-first
+                      overflow-auto md:overflow-visible'>
+        <div className='aspect-square hover:z-10 
+                      sm:border-4 border-black rounded 
+                      transform transition-transform duration-300 
+                      hover:rotate-2 hover:shadow-lg'>
+          <ProjectGalleryCard project={projects.at(0)} />
+          <div className='absolute inset-0 z-20'></div>
+        </div>
+        <div className='aspect-square hidden sm:block
+                        hover:z-10 
+                        md:ml-4 lg:ml-10 md:-mt-4 lg:-mt-10 
+                        sm:border-4 border-black rounded 
+                        transform transition-transform duration-300 
+                        hover:-rotate-2 hover:shadow-lg'>
+          <ProjectGalleryCard project={projects.at(1)} />
+          <div className='absolute inset-0 z-20'></div>
+        </div>
+        <div className='md:pt-4 flex ml-3 md:ml-none '>
+          <button className='p-2 px-4 hover:bg-accent3 hover:text-primary2 rounded bg-black/20 text-sm lg:text-base' onClick={() => navigate('/projects')}>
+            View full projects archives
+          </button>
+        </div>
+      </div>
+
+
+      <div className='h-2/3 justify-center md:h-auto md:w-3/4 lg:w-4/5 lg:ml-16 sm:mx-6 md:my-3 text-left tracking-widest'>
+        <div className='flex w-full p-2 bg-black/30 rounded-t'>
+          <div className='flex gap-2'>
+            <div className='rounded-full bg-red-400 h-2 sm:h-4 aspect-square'></div>
+            <div className='rounded-full bg-yellow-400 h-2 sm:h-4 aspect-square'></div>
+            <div className='rounded-full bg-green-400 h-2 sm:h-4 aspect-square'></div>
+          </div>
+        </div>
+
+        <div className='p-1 sm:p-4 h-4/5 flex flex-col gap-8 bg-black/20 rounded-b text-[0.7rem] sm:text-xs lg:text-sm overflow-y-auto'>
+          <div>
+            <span className='text-green-500'>prashansa@MacBook-Pro ~ %</span>
+            <span className='pl-2'> cd </span>
+            <span className='text-xl md:text-2xl lg:text-4xl font-semibold pl-2'>building_and_experimenting</span>
+          </div>
+
+          <div>
+            <span className='text-green-500'>prashansa@MacBook-Pro building_and_experimenting %</span>
+            <span className='pl-2'> ls </span>
+            <div className='font-bold'>readme.txt</div>
+          </div>
+
+          <div className='pr-28'>
+            <span className='text-green-500'>prashansa@MacBook-Pro building_and_experimenting %</span>
+            <span className='pl-2'>
+              <Typewriter
+                text="cat readme.txt"
+                speed={30}
+                start={visible}
+                onComplete={() => {setTimeout(() => setDisplayOutput(true), 300); setTimeout(() => setDisplayNextCommand(true), 400)}}
+              />
+            </span>
+
+            {displayOutput && (
+              <div className='md:text-base'>
+                These projects capture what I’ve been building, testing, and exploring. 
+                From prototypes to complete applications, each one represents a skill I’ve honed or a problem I’ve tackled. 
+                This archive is a mix of experimentation and purpose.
+              </div>
+            )}
+          </div>
+
+          {displayNextCommand && (
+            <div className='pr-28 flex'>
+              <span className='text-green-500'>prashansa@MacBook-Pro building_and_experimenting % <span className='h-full m-1 ml-2 px-[0.1rem] py-[0.2rem] bg-black/30 animate-pulse'>&nbsp;</span></span>
+              
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Projects;
